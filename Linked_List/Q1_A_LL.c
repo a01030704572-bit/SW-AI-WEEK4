@@ -64,7 +64,7 @@ int main()
 			j = insertSortedLL(&ll, i);
 			printf("The resulting linked list is: ");
 			printList(&ll);
-			break;
+			break; 
 		case 2:
 			printf("The value %d was added at index %d\n", i, j);
 			break;
@@ -90,8 +90,26 @@ int main()
 
 int insertSortedLL(LinkedList *ll, int item)
 {
-	/* add your code here */
+	int index = 0;
+	ListNode *cur = ll->head;
+	while(cur != NULL){
+		if (cur -> item == item){
+			return -1;
+		}
+		if (cur -> item > item){
+			break;
+		}
+		cur = cur -> next;
+		index++;
+	
+		}
+	if (insertNode(ll,index,item) == 0){
+		return index;
+	}
+	return -1;
+	
 }
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 
